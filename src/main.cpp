@@ -27,7 +27,7 @@ void logic() {
 int main(int argc, char **argv) {
   gl = new AGL();
   gl->init("Geo-globe", draw, input, logic);
-  gl->enable_cursor();
+//   gl->enable_cursor();
   
   game = new Game(gl);
   

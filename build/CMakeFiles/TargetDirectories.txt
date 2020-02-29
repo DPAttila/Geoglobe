@@ -1,0 +1,7 @@
+/home/ati/repos/geoglobe/build/CMakeFiles/install/strip.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/edit_cache.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/list_install_components.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/install/local.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/rebuild_cache.dir
+/home/ati/repos/geoglobe/build/CMakeFiles/install.dir

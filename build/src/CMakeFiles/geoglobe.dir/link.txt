@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/geoglobe.dir/main.cpp.o  -o geoglobe 

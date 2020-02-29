@@ -16,6 +16,8 @@ find_package(OpenGL REQUIRED)
 link_directories(agl2.0)
 link_libraries(agl GL)
 
+# link_directories(src)
+
 add_executable(geoglobe ${SRC_FILES} agl2.0/)
 
 install(TARGETS geoglobe RUNTIME DESTINATION bin)
