@@ -15,6 +15,8 @@ Tile::Tile(Point p1, Point p2, Point p3) {
   points[2] = p3;
   
   pos = (p1 + p2 + p3) / 3.0;
+  
+  type = 0;
 }
 
 Tile::~Tile() {
@@ -41,6 +43,18 @@ Point* Tile::get_points() {
 
 Tile** Tile::get_next() {
   return next;
+}
+
+int Tile::get_type() {
+  return type;
+}
+
+void Tile::set_type(int type) {
+  this->type = type;
+}
+
+Point Tile::get_pos() {
+  return pos;
 }
 
 #endif

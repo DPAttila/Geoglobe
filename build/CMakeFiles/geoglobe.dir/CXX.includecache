@@ -145,6 +145,8 @@ vector
 -
 AGL.h
 ../include/AGL.h
+Point.h
+../include/Point.h
 Tile.h
 ../include/Tile.h
 BufferGenerator.h
@@ -173,16 +175,4 @@ iostream
 -
 Icosphere.h
 /home/ati/repos/geoglobe/src/Icosphere.h
-
-/home/ati/repos/geoglobe/src/main.cpp
-iostream
--
-AGL.h
-/home/ati/repos/geoglobe/src/AGL.h
-imgui.h
-/home/ati/repos/geoglobe/src/imgui.h
-Graphics.h
-/home/ati/repos/geoglobe/src/Graphics.h
-Game.h
-/home/ati/repos/geoglobe/src/Game.h
 

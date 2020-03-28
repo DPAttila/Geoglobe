@@ -20,6 +20,8 @@ class Tile {
    */
   Tile* next[3];
   
+  Buffer* buf;
+  
   /**
    * 0 - plain
    * 1 - wall
@@ -27,7 +29,6 @@ class Tile {
   int type;
 
 public:
-  Buffer* buf;
   Tile(Point p1, Point p2, Point p3);
   
   ~Tile();
@@ -40,7 +41,13 @@ public:
   
   Point* get_points();
   
+  Point get_pos();
+  
   Tile** get_next();
+  
+  int get_type();
+  
+  void set_type(int type);
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "AGL.h"
+#include "Point.h"
 
 #include "Tile.h"
 #include "BufferGenerator.h"
@@ -12,6 +13,10 @@ using namespace agl;
 
 class Game {
   AGL* gl;
+  Camera* gl_camera;
+  Input* gl_input;
+  
+  float viewer_lon, viewer_lat, viewer_dist;
   
   bool game_over;
   
@@ -21,16 +26,10 @@ class Game {
   vector<Tile*> dbg;
   
   void build_tiles();
-  
-  int r = 0;
-int last_r = 0;
-
-Texture* t1 = new Texture("../blue.png");
-Texture* t2 = new Texture("../apple.png");
-Texture* base = new Texture("../tex.png");
-
 public:
   Game(AGL* gl);
+  
+  void update_camera_pos();
   
   void draw();
   

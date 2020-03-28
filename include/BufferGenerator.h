@@ -12,7 +12,7 @@ class BufferGenerator {
   AGL* gl;
   
   Texture* plain_texture;
-//   Texture* wall_texture;
+  Texture* wall_texture;
   
 //   Buffer* gen_plain_tile_buf(Tile* t);
   

@@ -10,6 +10,7 @@ Icosphere::Icosphere(int depth) {
   // Firstly we generate an icosahedron
   build_icosahedron();
   
+  // then we divide it as many times as neeeded
   for (int d = 0; d < depth; d++)
     divide();
 }
@@ -95,13 +96,6 @@ void Icosphere::build_icosahedron() {
       }
     }
   }
-  
-   cout << "\nsize: " << neighbours.size() << '\n' << flush;
-  for (int i = 0; i < neighbours.size(); i++) {
-    cout << neighbours[i][0] << " " << neighbours[i][1] << " " << neighbours[i][2] << "\n" << flush;
-  }
-  cout << '\n';
-  
 }
 
 void Icosphere::divide() {
@@ -208,14 +202,6 @@ void Icosphere::divide() {
       neighbours[i*4 + j][1] = indices_of_closest[1];
     }
   }
-  
-  cout << "\nsize: " << neighbours.size() << '\n' << flush;
-  for (int i = 0; i < neighbours.size(); i++) {
-    for (int j = 0; j < 3; j++)
-      cout << neighbours[i][j] << " ";
-    cout << '\n';
-  }
-  cout << '\n';
 }
 
 vector<Tile*> Icosphere::to_tile_set() {

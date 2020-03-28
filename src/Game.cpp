@@ -13,52 +13,47 @@ using namespace agl;
 
 Game::Game(AGL* gl) {
   this->gl = gl;
+  this->gl_camera = gl->get_graphics()->get_camera();
+  this->gl_input = gl->get_input();
   
   Shader* shader = new Shader(
     "../agl2.0/src/shaders/default.vs", 
     "../agl2.0/src/shaders/default.fs"
   );
   gl->get_graphics()->set_shader(shader);
-  
-  glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
+  glClearColor(0.2f, 0.4f, 0.8f, 0.0f);
   
   bufferGenerator = new BufferGenerator(gl);
   
-  game_over = false;
-  
   build_tiles();
+  
+  viewer_lon = 0;
+  viewer_lat = 0;
+  viewer_dist = -2;
+  update_camera_pos();
+  
+  game_over = false;
 }
 
 void Game::logic() {
-  if (last_r != r) {
-    
-    if (r < tiles.size()) {
-      tiles[last_r]->buf->set_texture(base);
-      Tile** t = tiles[last_r]->get_next();
-      for (int i = 0; i < 3; i++)
-        t[i]->buf->set_texture(base);
-      
-      tiles[r]->buf->set_texture(t1);
-      t = tiles[r]->get_next();
-      for (int i = 0; i < 3; i++)
-        t[i]->buf->set_texture(t2);
-      
-      last_r = r;
-    }
-  }
 }
 
 void Game::draw() {
   {
     ImGui::Begin("Hello");
+    Point2f scroll = gl_input->get_scroll();
     
-    ImGui::Text("hello");
-    
-    ImGui::InputInt("select", &r);
+    ImGui::Text("scroll %f %f", scroll.x, scroll.y);
+//     ImGui::Text(
+//       "camera pos: %f %f %f",
+//       viewer_dist * cos(viewer_lat) * cos(viewer_lon),
+//       viewer_dist * sin(viewer_lat),
+//       viewer_dist * cos(viewer_lat) * sin(viewer_lon)
+//     );
+//     
     ImGui::End();
   }
   
-  int i = 0;
   for (Tile* t : tiles) {
     t->draw();
   }
@@ -66,42 +61,66 @@ void Game::draw() {
 
 void Game::input() {
   //TODO: open menu on escape key instead of quitting
-  if (gl->get_key(GLFW_KEY_ESCAPE))
+  if (gl_input->get_key(GLFW_KEY_ESCAPE))
     gl->finish();
   
-  if (gl->get_key(GLFW_KEY_E)) {
-    if (gl->is_cursor_disabled())
-      gl->enable_cursor();
+  if (gl_input->get_key(GLFW_KEY_E)) {
+    if (gl_input->is_cursor_disabled())
+      gl_input->enable_cursor();
     else
-      gl->disable_cursor();
+      gl_input->disable_cursor();
   } 
-  if (gl->is_cursor_disabled()) {
-    if (gl->get_key(GLFW_KEY_W))
-      gl->move_camera_forward();
-    if (gl->get_key(GLFW_KEY_A))
-      gl->move_camera_left();
-    if (gl->get_key(GLFW_KEY_S))
-      gl->move_camera_backwards();
-    if (gl->get_key(GLFW_KEY_D))
-      gl->move_camera_right();
-    
-    Point2f d = gl->get_cursor_delta();
+  if (gl_input->is_cursor_disabled()) {
+    Point2f d = gl_input->get_cursor_delta();
     d.x /= 500.0;
     d.y /= 500.0;
     
-    if (d.x != 0 || d.y != 0)
-      gl->turn_camera(d.x, d.y);
+    if (d.x != 0 || d.y != 0) {
+      viewer_lon += d.x;
+      viewer_lat += d.y;
+      update_camera_pos();
+    }
+    
+    Point2f scroll = gl_input->get_scroll();
+    
+    if (scroll.y != 0) {
+      viewer_dist += 0.1 * scroll.y;
+      update_camera_pos();
+    }
   }
 
 }
 
 void Game::build_tiles() {
-  Icosphere icosphere(2);
+  srand(time(NULL));
+  Icosphere icosphere(3);
   
   tiles = icosphere.to_tile_set();
 
+  for (int i = 0; i < 10; i++) {
+    Tile* ti = tiles[rand() % tiles.size()];
+    while (ti->get_type() != 1) {
+      ti->set_type(1);
+      ti = ti->get_next()[rand() % 3]; 
+    }
+  }
+  
   for (int i = 0; i < tiles.size(); i++)
     tiles[i]->set_buf(bufferGenerator->gen_tile_buf(tiles[i]));
+}
+
+void Game::update_camera_pos() {
+  if (viewer_lat > M_PI/2)
+    viewer_lat = M_PI/2;
+  if (viewer_lat < -M_PI/2)
+    viewer_lat = -M_PI/2;
+  
+ gl_camera->orient(-viewer_lon, -viewer_lat);
+ gl_camera->set_pos(Point(
+    viewer_dist * cos(viewer_lat) * cos(viewer_lon),
+    viewer_dist * sin(viewer_lat),
+    viewer_dist * cos(viewer_lat) * sin(viewer_lon)
+  ));
 }
 
 #endif
