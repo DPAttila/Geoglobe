@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Point.h"
+#include "ShaderManager.h"
 
 #include "Tile.h"
 
@@ -46,7 +47,7 @@ public:
    * Converts the icosphere to a set of tiles
    * It sets the tiles' coordinates and neighbours
    */
-  vector<Tile*> to_tile_set();
+  vector<Tile*> to_tile_set(ShaderManager* shader_manager);
 };
 
 #endif

@@ -49,6 +49,8 @@ Graphics.h
 ../agl2.0/include/Graphics.h
 
 ../agl2.0/include/Buffer.h
+string
+-
 vector
 -
 glad/glad.h
@@ -87,8 +89,8 @@ Input.h
 ../agl2.0/include/Input.h
 Camera.h
 ../agl2.0/include/Camera.h
-Shader.h
-../agl2.0/include/Shader.h
+ShaderManager.h
+../agl2.0/include/ShaderManager.h
 
 ../agl2.0/include/Input.h
 glad/glad.h
@@ -114,6 +116,14 @@ string
 glad/glad.h
 ../agl2.0/include/glad/glad.h
 
+../agl2.0/include/ShaderManager.h
+map
+-
+string
+-
+Shader.h
+../agl2.0/include/Shader.h
+
 ../agl2.0/include/Texture.h
 string
 -
@@ -132,6 +142,12 @@ Point.h
 Point2f.h
 ../agl2.0/include/Point2f.h
 
+../include/Actor.h
+Buffer.h
+../include/Buffer.h
+Tile.h
+../include/Tile.h
+
 ../include/BufferGenerator.h
 AGL.h
 ../include/AGL.h
@@ -149,6 +165,8 @@ Point.h
 ../include/Point.h
 Tile.h
 ../include/Tile.h
+Actor.h
+../include/Actor.h
 BufferGenerator.h
 ../include/BufferGenerator.h
 
@@ -157,6 +175,8 @@ vector
 -
 Point.h
 ../include/Point.h
+ShaderManager.h
+../include/ShaderManager.h
 Tile.h
 ../include/Tile.h
 

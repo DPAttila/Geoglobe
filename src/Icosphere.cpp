@@ -1,6 +1,8 @@
 #ifndef ICOSPHERE_CPP
 #define ICOSPHERE_CPP
 
+#include "ShaderManager.h"
+
 #include "Icosphere.h"
 
 #include <cmath>
@@ -204,14 +206,15 @@ void Icosphere::divide() {
   }
 }
 
-vector<Tile*> Icosphere::to_tile_set() {
+vector<Tile*> Icosphere::to_tile_set(ShaderManager* shader_manager) {
   vector<Tile*> tiles;
   
   for (int i = 0; i < indices.size(); i++) {
     tiles.push_back(new Tile(
       points[indices[i][0]], 
       points[indices[i][1]], 
-      points[indices[i][2]]
+      points[indices[i][2]],
+      shader_manager
     ));
   }
   

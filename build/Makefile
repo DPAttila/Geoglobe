@@ -169,6 +169,33 @@ geoglobe/fast:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/build
 .PHONY : geoglobe/fast
 
+src/Actor.o: src/Actor.cpp.o
+
+.PHONY : src/Actor.o
+
+# target to build an object file
+src/Actor.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Actor.cpp.o
+.PHONY : src/Actor.cpp.o
+
+src/Actor.i: src/Actor.cpp.i
+
+.PHONY : src/Actor.i
+
+# target to preprocess a source file
+src/Actor.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Actor.cpp.i
+.PHONY : src/Actor.cpp.i
+
+src/Actor.s: src/Actor.cpp.s
+
+.PHONY : src/Actor.s
+
+# target to generate assembly for a file
+src/Actor.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Actor.cpp.s
+.PHONY : src/Actor.cpp.s
+
 src/BufferGenerator.o: src/BufferGenerator.cpp.o
 
 .PHONY : src/BufferGenerator.o
@@ -317,6 +344,9 @@ help:
 	@echo "... install/local"
 	@echo "... rebuild_cache"
 	@echo "... install"
+	@echo "... src/Actor.o"
+	@echo "... src/Actor.i"
+	@echo "... src/Actor.s"
 	@echo "... src/BufferGenerator.o"
 	@echo "... src/BufferGenerator.i"
 	@echo "... src/BufferGenerator.s"

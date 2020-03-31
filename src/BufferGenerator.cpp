@@ -13,6 +13,10 @@ BufferGenerator::BufferGenerator(AGL* gl) {
   
   plain_texture = new Texture("../textures/path.png");
   wall_texture = new Texture("../textures/wall.png");
+  
+  wizard = new Buffer(gl);
+  wizard->load("../models/wizard.obj");
+  wizard->scale(.06);
 }
 
 Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
@@ -92,4 +96,8 @@ Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
   return buf;
 }
 
+
+Buffer* BufferGenerator::get_wizard_buf() {
+  return wizard;
+}
 #endif

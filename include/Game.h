@@ -7,6 +7,7 @@
 #include "Point.h"
 
 #include "Tile.h"
+#include "Actor.h"
 #include "BufferGenerator.h"
 
 using namespace agl;
@@ -15,12 +16,15 @@ class Game {
   AGL* gl;
   Camera* gl_camera;
   Input* gl_input;
+  ShaderManager* shader_manager;
   
   float viewer_lon, viewer_lat, viewer_dist;
   
   bool game_over;
   
   BufferGenerator *bufferGenerator;
+  
+  Actor* hero;
   
   vector<Tile*> tiles;
   vector<Tile*> dbg;

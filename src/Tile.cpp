@@ -9,14 +9,19 @@
 
 using namespace agl;
 
-Tile::Tile(Point p1, Point p2, Point p3) {
+Tile::Tile(Point p1, Point p2, Point p3, ShaderManager* shaderManager) {
   points[0] = p1;
   points[1] = p2;
   points[2] = p3;
   
   pos = (p1 + p2 + p3) / 3.0;
   
+  angles.x = atan2(-pos.z, -pos.x);
+  angles.y = atan2(sqrt(pos.x * pos.x + pos.z * pos.z), pos.y);
+  
   type = 0;
+  
+  this->shaderManager = shaderManager;
 }
 
 Tile::~Tile() {
@@ -31,6 +36,16 @@ void Tile::set_neighbours(Tile* t1, Tile* t2, Tile* t3) {
   next[0] = t1;
   next[1] = t2;
   next[2] = t3;
+}
+
+void Tile::highlight() {
+  highlighted = true;
+  buf->set_shader("highlight");
+}
+
+void Tile::dehighlight() {
+  highlighted = false;
+  buf->set_shader("default");
 }
 
 void Tile::set_buf(Buffer* buf) {
@@ -55,6 +70,10 @@ void Tile::set_type(int type) {
 
 Point Tile::get_pos() {
   return pos;
+}
+
+Point2f Tile::get_angles() {
+  return angles;
 }
 
 #endif

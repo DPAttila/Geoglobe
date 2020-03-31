@@ -16,9 +16,20 @@ class Tile {
   Point pos;
 
   /**
+   * Horizontal and vertical angle of
+   * the vector drawn between the sphere's center 
+   * and the center of the triangle
+   * (these angles are used to set the Actors 
+   * perpendicular to the tile's plane)
+   */
+  Point2f angles;
+  
+  /**
    * Neighbours of the triangle
    */
   Tile* next[3];
+  
+  ShaderManager* shaderManager;
   
   Buffer* buf;
   
@@ -27,9 +38,11 @@ class Tile {
    * 1 - wall
    */
   int type;
+  
+  bool highlighted;
 
 public:
-  Tile(Point p1, Point p2, Point p3);
+  Tile(Point p1, Point p2, Point p3, ShaderManager* shaderManager);
   
   ~Tile();
   
@@ -43,11 +56,26 @@ public:
   
   Point get_pos();
   
+  /**
+   * Returns the h and v angles
+   */
+  Point2f get_angles();
+  
   Tile** get_next();
   
   int get_type();
   
   void set_type(int type);
+  
+  /**
+   * Sets a special highlight shader to be used for the tile
+   */
+  void highlight();
+  
+  /**
+   * Sets the default shader to be used for the tile
+   */
+  void dehighlight();
 };
 
 #endif

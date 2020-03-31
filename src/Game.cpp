@@ -16,16 +16,35 @@ Game::Game(AGL* gl) {
   this->gl_camera = gl->get_graphics()->get_camera();
   this->gl_input = gl->get_input();
   
-  Shader* shader = new Shader(
-    "../agl2.0/src/shaders/default.vs", 
-    "../agl2.0/src/shaders/default.fs"
+  shader_manager = gl->get_graphics()->get_shader_manager();
+  shader_manager->add_shader(
+    "default", 
+    "../shaders/default.vs", 
+    "../shaders/default.fs"
   );
-  gl->get_graphics()->set_shader(shader);
-  glClearColor(0.2f, 0.4f, 0.8f, 0.0f);
+  
+  shader_manager->add_shader(
+    "highlight",
+    "../shaders/default.vs", 
+    "../shaders/tile_selected.fs"
+  );
+  
+  glClearColor(0.5f, 0.5f, 0.2f, 0.0f);
   
   bufferGenerator = new BufferGenerator(gl);
   
   build_tiles();
+  
+  hero = new Actor(
+    bufferGenerator->get_wizard_buf(), 
+    tiles[rand() % tiles.size()]
+  );
+  
+  Tile* hero_tile = hero->get_tile();
+  hero_tile->highlight();
+  Tile** next_tiles = hero_tile->get_next();
+  for (int i = 0; i < 3; i++)
+    next_tiles[i]->highlight();
   
   viewer_lon = 0;
   viewer_lat = 0;
@@ -57,6 +76,8 @@ void Game::draw() {
   for (Tile* t : tiles) {
     t->draw();
   }
+  
+  hero->draw();
 }
 
 void Game::input() {
@@ -95,7 +116,7 @@ void Game::build_tiles() {
   srand(time(NULL));
   Icosphere icosphere(3);
   
-  tiles = icosphere.to_tile_set();
+  tiles = icosphere.to_tile_set(gl->get_graphics()->get_shader_manager());
 
   for (int i = 0; i < 10; i++) {
     Tile* ti = tiles[rand() % tiles.size()];
