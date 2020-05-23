@@ -7,7 +7,12 @@
 
 class Actor {
   Tile* tile;
+  Point pos;
   Buffer* buf;
+  
+  Point2f angles;
+  
+  void calculate_angles();
   
 public:
   Actor(Buffer* buf, Tile* tile);
@@ -15,6 +20,14 @@ public:
   void draw();
   
   Tile* get_tile();
+  
+  void set_tile(Tile* t);
+  
+  void set_pos(Point p);
+  
+  Point get_pos();
+  
+  Point2f get_angles();
 };
 
 #endif

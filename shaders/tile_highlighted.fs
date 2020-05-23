@@ -50,7 +50,7 @@ void main() {
   float d = length(point_light.pos - pos_in);
   vec4 point_color = vec4(point_light.color * point_light.intensity / (d*d), 1.0);
   
-  vec4 selection_color = vec4(0.9, -0.3, 0.9, 1.0);
+  vec4 selection_color = vec4(-0.5, 0.9, -0.5, 1.0);
   
   color = texture2D(sampler, texcoord_fs.st) * (diffuse_color + ambient_light + point_color + selection_color);
 }

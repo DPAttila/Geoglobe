@@ -40,6 +40,10 @@ class Tile {
   int type;
   
   bool highlighted;
+  
+  bool selected;
+  
+  bool occupied;
 
 public:
   Tile(Point p1, Point p2, Point p3, ShaderManager* shaderManager);
@@ -76,6 +80,24 @@ public:
    * Sets the default shader to be used for the tile
    */
   void dehighlight();
+  
+  /**
+   * Sets a special selection shader to be used for the tile
+   * (Only previously highlighted tile can be selected)
+   */
+  void select();
+  
+  /**
+   * Sets the highlight shader to be used for the tile
+   * (Only previously highlighted tile can be selected)
+   */
+  void deselect();
+  
+  bool is_occupied();
+  
+  void occupy();
+  
+  void unoccupy();
 };
 
 #endif

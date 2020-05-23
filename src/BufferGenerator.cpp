@@ -17,6 +17,11 @@ BufferGenerator::BufferGenerator(AGL* gl) {
   wizard = new Buffer(gl);
   wizard->load("../models/wizard.obj");
   wizard->scale(.06);
+  
+  phantom = new Buffer(gl);
+  
+  phantom->load("../models/phantom.obj");
+  phantom->scale(.06);
 }
 
 Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
@@ -100,4 +105,9 @@ Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
 Buffer* BufferGenerator::get_wizard_buf() {
   return wizard;
 }
+
+Buffer* BufferGenerator::get_phantom_buf() {
+  return phantom;
+}
+
 #endif

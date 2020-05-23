@@ -26,6 +26,12 @@ Game::Game(AGL* gl) {
   shader_manager->add_shader(
     "highlight",
     "../shaders/default.vs", 
+    "../shaders/tile_highlighted.fs"
+  );
+  
+  shader_manager->add_shader(
+    "selection",
+    "../shaders/default.vs",
     "../shaders/tile_selected.fs"
   );
   
@@ -37,24 +43,60 @@ Game::Game(AGL* gl) {
   
   hero = new Actor(
     bufferGenerator->get_wizard_buf(), 
-    tiles[rand() % tiles.size()]
+    get_unoccupied_tile()
   );
   
-  Tile* hero_tile = hero->get_tile();
-  hero_tile->highlight();
-  Tile** next_tiles = hero_tile->get_next();
-  for (int i = 0; i < 3; i++)
-    next_tiles[i]->highlight();
+  for (int i = 0; i < 10; i++) {
+    enemies.push_back(new Actor(
+      bufferGenerator->get_phantom_buf(),
+      get_unoccupied_tile()
+    ));
+  }
   
-  viewer_lon = 0;
-  viewer_lat = 0;
+  Point2f hero_angles = hero->get_angles();
+  
+  viewer_lon = hero_angles.x;
+  viewer_lat = hero_angles.y - M_PI/2;
+  update_camera_pos();
+  
   viewer_dist = -2;
   update_camera_pos();
   
   game_over = false;
+  
+  player_turn = true;
+  animation = false;
+  
+  animator = nullptr;
 }
 
 void Game::logic() {
+  
+  if (selection_cooldown) selection_cooldown--;
+  
+  if (!animation) {
+    if (player_turn) {
+      if (moves.size() == 0) {
+        Tile** next_tiles = hero->get_tile()->get_next();
+        for (int i = 0; i < 3; i++) {
+          if (next_tiles[i]->get_type() == 0 && !next_tiles[i]->is_occupied())
+            moves.push_back(next_tiles[i]);
+        }
+        
+        for (int i = 0; i < moves.size(); i++) 
+          moves[i]->highlight();
+        
+        move_selection = 0;
+      }
+    }
+  } else {
+    animator->animate();
+    
+    if (animator->is_finished()) {
+      animation = false;
+      player_turn = !player_turn;
+    }
+  }
 }
 
 void Game::draw() {
@@ -63,13 +105,7 @@ void Game::draw() {
     Point2f scroll = gl_input->get_scroll();
     
     ImGui::Text("scroll %f %f", scroll.x, scroll.y);
-//     ImGui::Text(
-//       "camera pos: %f %f %f",
-//       viewer_dist * cos(viewer_lat) * cos(viewer_lon),
-//       viewer_dist * sin(viewer_lat),
-//       viewer_dist * cos(viewer_lat) * sin(viewer_lon)
-//     );
-//     
+
     ImGui::End();
   }
   
@@ -78,6 +114,10 @@ void Game::draw() {
   }
   
   hero->draw();
+  
+  for (Actor* e : enemies) {
+    e->draw();
+  }
 }
 
 void Game::input() {
@@ -91,6 +131,45 @@ void Game::input() {
     else
       gl_input->disable_cursor();
   } 
+  
+  if (player_turn && !animation) {
+    if (gl_input->get_key(GLFW_KEY_LEFT) || gl_input->get_key(GLFW_KEY_RIGHT)) {
+      if (!selection_cooldown) {
+        selection_cooldown = SELECTION_COOLDOWN;
+        
+        moves[move_selection]->deselect();
+        
+        if (gl_input->get_key(GLFW_KEY_LEFT)) {
+          move_selection -= 1;
+          if (move_selection < 0) 
+            move_selection = moves.size() - 1;
+        }
+        
+        if (gl_input->get_key(GLFW_KEY_RIGHT)) {
+          move_selection += 1;
+          if (move_selection >= moves.size()) 
+            move_selection = 0;
+        }
+        
+        moves[move_selection]->select();
+      }
+    }
+    
+    if (gl_input->get_key(GLFW_KEY_ENTER)) {
+      player_turn = false;
+      animation = true;
+      
+      if (animator != nullptr) delete animator;
+      
+      animator = new Animator(hero, moves[move_selection]->get_pos());
+      hero->set_tile(moves[move_selection]);
+      
+      for (int i = 0; i < moves.size(); i++)
+        moves[i]->dehighlight();
+      moves.clear();
+    }
+  }
+  
   if (gl_input->is_cursor_disabled()) {
     Point2f d = gl_input->get_cursor_delta();
     d.x /= 500.0;
@@ -114,7 +193,7 @@ void Game::input() {
 
 void Game::build_tiles() {
   srand(time(NULL));
-  Icosphere icosphere(3);
+  Icosphere icosphere(2);
   
   tiles = icosphere.to_tile_set(gl->get_graphics()->get_shader_manager());
 
@@ -142,6 +221,15 @@ void Game::update_camera_pos() {
     viewer_dist * sin(viewer_lat),
     viewer_dist * cos(viewer_lat) * sin(viewer_lon)
   ));
+}
+
+Tile* Game::get_unoccupied_tile() {
+  Tile* t;
+  do {
+    t = tiles[rand() % tiles.size()];
+  } while (t->get_type() != 0 || t->is_occupied());
+  
+  return t;
 }
 
 #endif

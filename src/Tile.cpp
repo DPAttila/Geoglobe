@@ -4,6 +4,7 @@
 #include "Tile.h"
 
 #include <cmath>
+#include <iostream>
 
 #include "Vertex.h"
 
@@ -20,6 +21,7 @@ Tile::Tile(Point p1, Point p2, Point p3, ShaderManager* shaderManager) {
   angles.y = atan2(sqrt(pos.x * pos.x + pos.z * pos.z), pos.y);
   
   type = 0;
+  occupied = false;
   
   this->shaderManager = shaderManager;
 }
@@ -45,7 +47,22 @@ void Tile::highlight() {
 
 void Tile::dehighlight() {
   highlighted = false;
+  selected = false;
   buf->set_shader("default");
+}
+
+void Tile::select() {
+  if (highlighted) {
+    selected = true;
+    buf->set_shader("selection");
+  } else {
+    std::cout << "Can't select tile that is not highlighted";
+  }
+}
+
+void Tile::deselect() {
+  selected = false;
+  buf->set_shader("highlight");
 }
 
 void Tile::set_buf(Buffer* buf) {
@@ -74,6 +91,18 @@ Point Tile::get_pos() {
 
 Point2f Tile::get_angles() {
   return angles;
+}
+
+bool Tile::is_occupied() {
+  return occupied;
+}
+
+void Tile::occupy() {
+  occupied = true;
+}
+
+void Tile::unoccupy() {
+  occupied = false;
 }
 
 #endif

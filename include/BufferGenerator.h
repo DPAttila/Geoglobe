@@ -15,6 +15,7 @@ class BufferGenerator {
   Texture* wall_texture;
   
   Buffer* wizard;
+  Buffer* phantom;
   
 //   Buffer* gen_plain_tile_buf(Tile* t);
   
@@ -26,6 +27,8 @@ public:
   Buffer* gen_tile_buf(Tile* t);
   
   Buffer* get_wizard_buf();
+  
+  Buffer* get_phantom_buf();
 };
 
 #endif
