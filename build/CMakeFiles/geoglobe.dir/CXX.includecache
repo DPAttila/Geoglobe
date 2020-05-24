@@ -147,16 +147,28 @@ Buffer.h
 ../include/Buffer.h
 Tile.h
 ../include/Tile.h
+Animateable.h
+../include/Animateable.h
 
-../include/Animator.h
+../include/Animateable.h
 AGL.h
 ../include/AGL.h
 Point.h
 ../include/Point.h
 Buffer.h
 ../include/Buffer.h
+
+../include/Animator.h
+Point.h
+../include/Point.h
+Animateable.h
+../include/Animateable.h
+
+../include/Blast.h
 Actor.h
 ../include/Actor.h
+Animateable.h
+../include/Animateable.h
 
 ../include/BufferGenerator.h
 AGL.h
@@ -165,6 +177,10 @@ Buffer.h
 ../include/Buffer.h
 Tile.h
 ../include/Tile.h
+
+../include/Explodeable.h
+AGL.h
+../include/AGL.h
 
 ../include/Game.h
 vector
@@ -175,6 +191,8 @@ Point.h
 ../include/Point.h
 Tile.h
 ../include/Tile.h
+Blast.h
+../include/Blast.h
 Actor.h
 ../include/Actor.h
 Animator.h
@@ -197,6 +215,8 @@ AGL.h
 ../include/AGL.h
 Buffer.h
 ../include/Buffer.h
+Explodeable.h
+../include/Explodeable.h
 
 /home/ati/repos/geoglobe/src/Game.cpp
 Game.h
@@ -204,6 +224,8 @@ Game.h
 cmath
 -
 iostream
+-
+algorithm
 -
 Icosphere.h
 /home/ati/repos/geoglobe/src/Icosphere.h

@@ -196,6 +196,33 @@ src/Actor.cpp.s:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Actor.cpp.s
 .PHONY : src/Actor.cpp.s
 
+src/Animateable.o: src/Animateable.cpp.o
+
+.PHONY : src/Animateable.o
+
+# target to build an object file
+src/Animateable.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Animateable.cpp.o
+.PHONY : src/Animateable.cpp.o
+
+src/Animateable.i: src/Animateable.cpp.i
+
+.PHONY : src/Animateable.i
+
+# target to preprocess a source file
+src/Animateable.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Animateable.cpp.i
+.PHONY : src/Animateable.cpp.i
+
+src/Animateable.s: src/Animateable.cpp.s
+
+.PHONY : src/Animateable.s
+
+# target to generate assembly for a file
+src/Animateable.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Animateable.cpp.s
+.PHONY : src/Animateable.cpp.s
+
 src/Animator.o: src/Animator.cpp.o
 
 .PHONY : src/Animator.o
@@ -223,6 +250,33 @@ src/Animator.cpp.s:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Animator.cpp.s
 .PHONY : src/Animator.cpp.s
 
+src/Blast.o: src/Blast.cpp.o
+
+.PHONY : src/Blast.o
+
+# target to build an object file
+src/Blast.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Blast.cpp.o
+.PHONY : src/Blast.cpp.o
+
+src/Blast.i: src/Blast.cpp.i
+
+.PHONY : src/Blast.i
+
+# target to preprocess a source file
+src/Blast.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Blast.cpp.i
+.PHONY : src/Blast.cpp.i
+
+src/Blast.s: src/Blast.cpp.s
+
+.PHONY : src/Blast.s
+
+# target to generate assembly for a file
+src/Blast.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Blast.cpp.s
+.PHONY : src/Blast.cpp.s
+
 src/BufferGenerator.o: src/BufferGenerator.cpp.o
 
 .PHONY : src/BufferGenerator.o
@@ -249,6 +303,33 @@ src/BufferGenerator.s: src/BufferGenerator.cpp.s
 src/BufferGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.s
 .PHONY : src/BufferGenerator.cpp.s
+
+src/Explodeable.o: src/Explodeable.cpp.o
+
+.PHONY : src/Explodeable.o
+
+# target to build an object file
+src/Explodeable.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o
+.PHONY : src/Explodeable.cpp.o
+
+src/Explodeable.i: src/Explodeable.cpp.i
+
+.PHONY : src/Explodeable.i
+
+# target to preprocess a source file
+src/Explodeable.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Explodeable.cpp.i
+.PHONY : src/Explodeable.cpp.i
+
+src/Explodeable.s: src/Explodeable.cpp.s
+
+.PHONY : src/Explodeable.s
+
+# target to generate assembly for a file
+src/Explodeable.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Explodeable.cpp.s
+.PHONY : src/Explodeable.cpp.s
 
 src/Game.o: src/Game.cpp.o
 
@@ -374,12 +455,21 @@ help:
 	@echo "... src/Actor.o"
 	@echo "... src/Actor.i"
 	@echo "... src/Actor.s"
+	@echo "... src/Animateable.o"
+	@echo "... src/Animateable.i"
+	@echo "... src/Animateable.s"
 	@echo "... src/Animator.o"
 	@echo "... src/Animator.i"
 	@echo "... src/Animator.s"
+	@echo "... src/Blast.o"
+	@echo "... src/Blast.i"
+	@echo "... src/Blast.s"
 	@echo "... src/BufferGenerator.o"
 	@echo "... src/BufferGenerator.i"
 	@echo "... src/BufferGenerator.s"
+	@echo "... src/Explodeable.o"
+	@echo "... src/Explodeable.i"
+	@echo "... src/Explodeable.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"

@@ -7,11 +7,15 @@
 #include "Point.h"
 
 #include "Tile.h"
+#include "Blast.h"
 #include "Actor.h"
 #include "Animator.h"
 #include "BufferGenerator.h"
 
 using namespace agl;
+
+#define SELECTION_COOLDOWN 7
+#define MENU_APPEAR_COUNTDOWN 400
 
 class Game {
   AGL* gl;
@@ -22,16 +26,17 @@ class Game {
   bool player_turn;
   bool animation;
   
-  vector<Tile*> tiles;
+  bool game_ended;
+  int menu_appear_countdown;
   
-  vector<Tile*> moves;
+  vector<Tile*> tiles;
   
   /**
    * Index of the currently selected move
    */
   int move_selection;
   
-  #define SELECTION_COOLDOWN 7
+  
   int selection_cooldown;
   
   float viewer_lon, viewer_lat, viewer_dist;
@@ -44,9 +49,17 @@ class Game {
   
   vector<Actor*> enemies;
 
+  Blast* blast;
+  
   Animator *animator;
   
+  vector<Tile*> hero_fov;
+  
   void build_tiles();
+  
+  void shoot_blast(Actor* source, Actor* target);
+  
+  void explode();
   
   Tile* get_unoccupied_tile();
 public:

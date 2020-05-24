@@ -3,10 +3,13 @@
 
 #include "AGL.h"
 #include "Buffer.h"
+#include "Explodeable.h"
 
 using namespace agl;
 
-class Tile {
+class Actor;
+
+class Tile : Explodeable {
   
   Point points[3];
   
@@ -36,6 +39,7 @@ class Tile {
   /**
    * 0 - plain
    * 1 - wall
+   * 2 - portal
    */
   int type;
   
@@ -43,7 +47,7 @@ class Tile {
   
   bool selected;
   
-  bool occupied;
+  Actor* actor;
 
 public:
   Tile(Point p1, Point p2, Point p3, ShaderManager* shaderManager);
@@ -93,11 +97,11 @@ public:
    */
   void deselect();
   
-  bool is_occupied();
+  Actor* get_actor();
   
-  void occupy();
+  void set_actor(Actor* actor);
   
-  void unoccupy();
+  void add_explosion_delta();
 };
 
 #endif

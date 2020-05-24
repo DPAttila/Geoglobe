@@ -70,9 +70,22 @@ CMakeFiles/geoglobe.dir/src/Actor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/Actor.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/Actor.cpp -o CMakeFiles/geoglobe.dir/src/Actor.cpp.s
 
+CMakeFiles/geoglobe.dir/src/Animateable.cpp.o: CMakeFiles/geoglobe.dir/flags.make
+CMakeFiles/geoglobe.dir/src/Animateable.cpp.o: ../src/Animateable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/geoglobe.dir/src/Animateable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Animateable.cpp.o -c /home/ati/repos/geoglobe/src/Animateable.cpp
+
+CMakeFiles/geoglobe.dir/src/Animateable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geoglobe.dir/src/Animateable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ati/repos/geoglobe/src/Animateable.cpp > CMakeFiles/geoglobe.dir/src/Animateable.cpp.i
+
+CMakeFiles/geoglobe.dir/src/Animateable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/Animateable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/Animateable.cpp -o CMakeFiles/geoglobe.dir/src/Animateable.cpp.s
+
 CMakeFiles/geoglobe.dir/src/Animator.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/Animator.cpp.o: ../src/Animator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/geoglobe.dir/src/Animator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/geoglobe.dir/src/Animator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Animator.cpp.o -c /home/ati/repos/geoglobe/src/Animator.cpp
 
 CMakeFiles/geoglobe.dir/src/Animator.cpp.i: cmake_force
@@ -83,9 +96,22 @@ CMakeFiles/geoglobe.dir/src/Animator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/Animator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/Animator.cpp -o CMakeFiles/geoglobe.dir/src/Animator.cpp.s
 
+CMakeFiles/geoglobe.dir/src/Blast.cpp.o: CMakeFiles/geoglobe.dir/flags.make
+CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../src/Blast.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/geoglobe.dir/src/Blast.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Blast.cpp.o -c /home/ati/repos/geoglobe/src/Blast.cpp
+
+CMakeFiles/geoglobe.dir/src/Blast.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geoglobe.dir/src/Blast.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ati/repos/geoglobe/src/Blast.cpp > CMakeFiles/geoglobe.dir/src/Blast.cpp.i
+
+CMakeFiles/geoglobe.dir/src/Blast.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/Blast.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/Blast.cpp -o CMakeFiles/geoglobe.dir/src/Blast.cpp.s
+
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../src/BufferGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o -c /home/ati/repos/geoglobe/src/BufferGenerator.cpp
 
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.i: cmake_force
@@ -96,9 +122,22 @@ CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/BufferGenerator.cpp -o CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.s
 
+CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o: CMakeFiles/geoglobe.dir/flags.make
+CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o: ../src/Explodeable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o -c /home/ati/repos/geoglobe/src/Explodeable.cpp
+
+CMakeFiles/geoglobe.dir/src/Explodeable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geoglobe.dir/src/Explodeable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ati/repos/geoglobe/src/Explodeable.cpp > CMakeFiles/geoglobe.dir/src/Explodeable.cpp.i
+
+CMakeFiles/geoglobe.dir/src/Explodeable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geoglobe.dir/src/Explodeable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ati/repos/geoglobe/src/Explodeable.cpp -o CMakeFiles/geoglobe.dir/src/Explodeable.cpp.s
+
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../src/Game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/geoglobe.dir/src/Game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/geoglobe.dir/src/Game.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Game.cpp.o -c /home/ati/repos/geoglobe/src/Game.cpp
 
 CMakeFiles/geoglobe.dir/src/Game.cpp.i: cmake_force
@@ -111,7 +150,7 @@ CMakeFiles/geoglobe.dir/src/Game.cpp.s: cmake_force
 
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: ../src/Icosphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o -c /home/ati/repos/geoglobe/src/Icosphere.cpp
 
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.i: cmake_force
@@ -124,7 +163,7 @@ CMakeFiles/geoglobe.dir/src/Icosphere.cpp.s: cmake_force
 
 CMakeFiles/geoglobe.dir/src/Tile.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/Tile.cpp.o: ../src/Tile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/geoglobe.dir/src/Tile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/geoglobe.dir/src/Tile.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/Tile.cpp.o -c /home/ati/repos/geoglobe/src/Tile.cpp
 
 CMakeFiles/geoglobe.dir/src/Tile.cpp.i: cmake_force
@@ -137,7 +176,7 @@ CMakeFiles/geoglobe.dir/src/Tile.cpp.s: cmake_force
 
 CMakeFiles/geoglobe.dir/src/main.cpp.o: CMakeFiles/geoglobe.dir/flags.make
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/geoglobe.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/geoglobe.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/geoglobe.dir/src/main.cpp.o -c /home/ati/repos/geoglobe/src/main.cpp
 
 CMakeFiles/geoglobe.dir/src/main.cpp.i: cmake_force
@@ -151,8 +190,11 @@ CMakeFiles/geoglobe.dir/src/main.cpp.s: cmake_force
 # Object files for target geoglobe
 geoglobe_OBJECTS = \
 "CMakeFiles/geoglobe.dir/src/Actor.cpp.o" \
+"CMakeFiles/geoglobe.dir/src/Animateable.cpp.o" \
 "CMakeFiles/geoglobe.dir/src/Animator.cpp.o" \
+"CMakeFiles/geoglobe.dir/src/Blast.cpp.o" \
 "CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o" \
+"CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o" \
 "CMakeFiles/geoglobe.dir/src/Game.cpp.o" \
 "CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o" \
 "CMakeFiles/geoglobe.dir/src/Tile.cpp.o" \
@@ -162,15 +204,18 @@ geoglobe_OBJECTS = \
 geoglobe_EXTERNAL_OBJECTS =
 
 geoglobe: CMakeFiles/geoglobe.dir/src/Actor.cpp.o
+geoglobe: CMakeFiles/geoglobe.dir/src/Animateable.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/Animator.cpp.o
+geoglobe: CMakeFiles/geoglobe.dir/src/Blast.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o
+geoglobe: CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/Game.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/Tile.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/src/main.cpp.o
 geoglobe: CMakeFiles/geoglobe.dir/build.make
 geoglobe: CMakeFiles/geoglobe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable geoglobe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ati/repos/geoglobe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable geoglobe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/geoglobe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

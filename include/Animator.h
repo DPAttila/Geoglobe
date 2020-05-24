@@ -1,16 +1,14 @@
 #ifndef ANIMATOR_H
 #define ANIMATOR_H
 
-#include "AGL.h"
 #include "Point.h"
-#include "Buffer.h"
 
-#include "Actor.h"
+#include "Animateable.h"
 
 using namespace agl;
 
 class Animator {
-  Actor* actor;
+  Animateable* animateable;
   Point start, finish;
   
   bool finished;
@@ -19,7 +17,7 @@ class Animator {
   int progress;
   
 public:
-  Animator(Actor* actor, Point finish);
+  Animator(Animateable* animateable, Point finish);
   
   void animate();
   

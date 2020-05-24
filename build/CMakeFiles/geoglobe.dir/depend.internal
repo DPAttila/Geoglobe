@@ -20,8 +20,30 @@ CMakeFiles/geoglobe.dir/src/Actor.cpp.o
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
  ../include/Actor.h
+ ../include/Animateable.h
+ ../include/Explodeable.h
  ../include/Tile.h
  /home/ati/repos/geoglobe/src/Actor.cpp
+CMakeFiles/geoglobe.dir/src/Animateable.cpp.o
+ ../agl2.0/glad/KHR/khrplatform.h
+ ../agl2.0/glad/glad/glad.h
+ ../agl2.0/imgui-master/imconfig.h
+ ../agl2.0/imgui-master/imgui.h
+ ../agl2.0/include/AGL.h
+ ../agl2.0/include/Buffer.h
+ ../agl2.0/include/Camera.h
+ ../agl2.0/include/Graphics.h
+ ../agl2.0/include/Input.h
+ ../agl2.0/include/Matrix4f.h
+ ../agl2.0/include/Point.h
+ ../agl2.0/include/Point2f.h
+ ../agl2.0/include/Shader.h
+ ../agl2.0/include/ShaderManager.h
+ ../agl2.0/include/Texture.h
+ ../agl2.0/include/Transformation.h
+ ../agl2.0/include/Vertex.h
+ ../include/Animateable.h
+ /home/ati/repos/geoglobe/src/Animateable.cpp
 CMakeFiles/geoglobe.dir/src/Animator.cpp.o
  ../agl2.0/glad/KHR/khrplatform.h
  ../agl2.0/glad/glad/glad.h
@@ -40,10 +62,34 @@ CMakeFiles/geoglobe.dir/src/Animator.cpp.o
  ../agl2.0/include/Texture.h
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
- ../include/Actor.h
+ ../include/Animateable.h
  ../include/Animator.h
- ../include/Tile.h
  /home/ati/repos/geoglobe/src/Animator.cpp
+CMakeFiles/geoglobe.dir/src/Blast.cpp.o
+ ../agl2.0/glad/KHR/khrplatform.h
+ ../agl2.0/glad/glad/glad.h
+ ../agl2.0/imgui-master/imconfig.h
+ ../agl2.0/imgui-master/imgui.h
+ ../agl2.0/include/AGL.h
+ ../agl2.0/include/Buffer.h
+ ../agl2.0/include/Camera.h
+ ../agl2.0/include/Graphics.h
+ ../agl2.0/include/Input.h
+ ../agl2.0/include/Matrix4f.h
+ ../agl2.0/include/Point.h
+ ../agl2.0/include/Point2f.h
+ ../agl2.0/include/Shader.h
+ ../agl2.0/include/ShaderManager.h
+ ../agl2.0/include/Texture.h
+ ../agl2.0/include/Transformation.h
+ ../agl2.0/include/Vertex.h
+ ../include/Actor.h
+ ../include/Animateable.h
+ ../include/Blast.h
+ ../include/BufferGenerator.h
+ ../include/Explodeable.h
+ ../include/Tile.h
+ /home/ati/repos/geoglobe/src/Blast.cpp
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o
  ../agl2.0/glad/KHR/khrplatform.h
  ../agl2.0/glad/glad/glad.h
@@ -63,8 +109,25 @@ CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
  ../include/BufferGenerator.h
+ ../include/Explodeable.h
  ../include/Tile.h
  /home/ati/repos/geoglobe/src/BufferGenerator.cpp
+CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o
+ ../agl2.0/glad/KHR/khrplatform.h
+ ../agl2.0/glad/glad/glad.h
+ ../agl2.0/imgui-master/imconfig.h
+ ../agl2.0/imgui-master/imgui.h
+ ../agl2.0/include/AGL.h
+ ../agl2.0/include/Camera.h
+ ../agl2.0/include/Graphics.h
+ ../agl2.0/include/Input.h
+ ../agl2.0/include/Matrix4f.h
+ ../agl2.0/include/Point.h
+ ../agl2.0/include/Point2f.h
+ ../agl2.0/include/Shader.h
+ ../agl2.0/include/ShaderManager.h
+ ../include/Explodeable.h
+ /home/ati/repos/geoglobe/src/Explodeable.cpp
 CMakeFiles/geoglobe.dir/src/Game.cpp.o
  ../agl2.0/glad/KHR/khrplatform.h
  ../agl2.0/glad/glad/glad.h
@@ -84,8 +147,11 @@ CMakeFiles/geoglobe.dir/src/Game.cpp.o
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
  ../include/Actor.h
+ ../include/Animateable.h
  ../include/Animator.h
+ ../include/Blast.h
  ../include/BufferGenerator.h
+ ../include/Explodeable.h
  ../include/Game.h
  ../include/Icosphere.h
  ../include/Tile.h
@@ -108,6 +174,7 @@ CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o
  ../agl2.0/include/Texture.h
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
+ ../include/Explodeable.h
  ../include/Icosphere.h
  ../include/Tile.h
  /home/ati/repos/geoglobe/src/Icosphere.cpp
@@ -129,6 +196,7 @@ CMakeFiles/geoglobe.dir/src/Tile.cpp.o
  ../agl2.0/include/Texture.h
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
+ ../include/Explodeable.h
  ../include/Tile.h
  /home/ati/repos/geoglobe/src/Tile.cpp
 CMakeFiles/geoglobe.dir/src/main.cpp.o
@@ -150,8 +218,11 @@ CMakeFiles/geoglobe.dir/src/main.cpp.o
  ../agl2.0/include/Transformation.h
  ../agl2.0/include/Vertex.h
  ../include/Actor.h
+ ../include/Animateable.h
  ../include/Animator.h
+ ../include/Blast.h
  ../include/BufferGenerator.h
+ ../include/Explodeable.h
  ../include/Game.h
  ../include/Tile.h
  /home/ati/repos/geoglobe/src/main.cpp

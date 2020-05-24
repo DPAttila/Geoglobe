@@ -5,6 +5,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <algorithm>
 
 #include "Icosphere.h"
 
@@ -43,13 +44,21 @@ Game::Game(AGL* gl) {
   
   hero = new Actor(
     bufferGenerator->get_wizard_buf(), 
-    get_unoccupied_tile()
+    get_unoccupied_tile(),
+    10, 
+    3,
+    5,
+    true
   );
   
   for (int i = 0; i < 10; i++) {
     enemies.push_back(new Actor(
       bufferGenerator->get_phantom_buf(),
-      get_unoccupied_tile()
+      get_unoccupied_tile(),
+      5,
+      1,
+      3,
+      false
     ));
   }
   
@@ -68,33 +77,66 @@ Game::Game(AGL* gl) {
   animation = false;
   
   animator = nullptr;
+  blast = nullptr;
+  
+  game_ended = false;
+  menu_appear_countdown = MENU_APPEAR_COUNTDOWN;
 }
 
 void Game::logic() {
   
-  if (selection_cooldown) selection_cooldown--;
-  
-  if (!animation) {
-    if (player_turn) {
-      if (moves.size() == 0) {
-        Tile** next_tiles = hero->get_tile()->get_next();
-        for (int i = 0; i < 3; i++) {
-          if (next_tiles[i]->get_type() == 0 && !next_tiles[i]->is_occupied())
-            moves.push_back(next_tiles[i]);
-        }
-        
-        for (int i = 0; i < moves.size(); i++) 
-          moves[i]->highlight();
-        
-        move_selection = 0;
+  if (game_ended) {
+    if (menu_appear_countdown) {
+      menu_appear_countdown--;
+      if (hero->is_alive()) {
+        explode();
       }
     }
   } else {
-    animator->animate();
-    
-    if (animator->is_finished()) {
-      animation = false;
-      player_turn = !player_turn;
+    if (selection_cooldown) selection_cooldown--;
+    if (!animation) {
+      if (player_turn) {
+        if (hero->get_tile()->get_type() == 2) {
+          game_ended = true;
+        } else if (hero->get_moves().size() == 0) {
+          hero->calculate_moves();
+          
+          for (Tile* t : hero->get_moves()) 
+            t->highlight();
+          
+          move_selection = 0;
+          (hero->get_moves())[move_selection]->select();
+        }
+      }
+    } else {
+      animator->animate();
+      
+      if (animator->is_finished()) {
+        cout << "Animation finished\n" << flush;
+        animation = false;
+        player_turn = !player_turn;
+      
+        if (blast != nullptr) {
+          
+          blast->blow();
+          
+          if (!blast->get_target()->is_alive()) {
+            if (blast->get_target()->get_side() == 0) {
+              enemies.erase(remove(enemies.begin(), enemies.end(), blast->get_target()));
+            } else {
+              game_ended = true;
+            }
+          }
+          
+          delete blast;
+          blast = nullptr;
+        }
+        
+        delete animator;
+        animator = nullptr;
+        
+        hero->calculate_moves();
+      } 
     }
   }
 }
@@ -118,6 +160,10 @@ void Game::draw() {
   for (Actor* e : enemies) {
     e->draw();
   }
+  
+  if (blast != nullptr) {
+    blast->draw();
+  }
 }
 
 void Game::input() {
@@ -136,6 +182,8 @@ void Game::input() {
     if (gl_input->get_key(GLFW_KEY_LEFT) || gl_input->get_key(GLFW_KEY_RIGHT)) {
       if (!selection_cooldown) {
         selection_cooldown = SELECTION_COOLDOWN;
+        
+        vector<Tile*> moves = hero->get_moves();
         
         moves[move_selection]->deselect();
         
@@ -159,14 +207,28 @@ void Game::input() {
       player_turn = false;
       animation = true;
       
-      if (animator != nullptr) delete animator;
-      
-      animator = new Animator(hero, moves[move_selection]->get_pos());
-      hero->set_tile(moves[move_selection]);
+      vector<Tile*> moves = hero->get_moves();
       
       for (int i = 0; i < moves.size(); i++)
         moves[i]->dehighlight();
-      moves.clear();
+
+      if (moves[move_selection]->get_actor() == nullptr) {
+        animator = new Animator(hero, moves[move_selection]->get_pos());
+        hero->set_tile(moves[move_selection]);
+      } else {
+        shoot_blast(hero, moves[move_selection]->get_actor());
+        hero->calculate_moves();
+      }
+
+      for (Tile* t : hero_fov)
+        t->dehighlight();
+      hero_fov.clear();
+      
+      hero_fov = hero->get_reach();
+      for (Tile* t : hero_fov)
+        t->highlight();
+        
+      move_selection = 0;
     }
   }
   
@@ -191,6 +253,22 @@ void Game::input() {
 
 }
 
+void Game::shoot_blast(Actor* source, Actor* target) {
+ cout << "Entering funciton\n" << flush;
+  if (blast != nullptr) 
+    cout << "Blast nem nullptr, gyanus\n";
+  
+  cout << "Creaint blast\n" << flush;
+  blast = new Blast(source, target, bufferGenerator->get_blast_buf());
+  
+  cout << "Creating animator\n" << flush;
+  
+  if (animator != nullptr)
+    cout << "Animator nem nullptr, gyanus\n";
+  animator = new Animator(blast, target->get_pos());
+  cout << "Blast shot\n" << flush;
+}
+
 void Game::build_tiles() {
   srand(time(NULL));
   Icosphere icosphere(2);
@@ -204,6 +282,9 @@ void Game::build_tiles() {
       ti = ti->get_next()[rand() % 3]; 
     }
   }
+  
+  for (int i = 0; i < 30; i++) 
+  get_unoccupied_tile()->set_type(2);
   
   for (int i = 0; i < tiles.size(); i++)
     tiles[i]->set_buf(bufferGenerator->gen_tile_buf(tiles[i]));
@@ -227,9 +308,24 @@ Tile* Game::get_unoccupied_tile() {
   Tile* t;
   do {
     t = tiles[rand() % tiles.size()];
-  } while (t->get_type() != 0 || t->is_occupied());
+  } while (!(t->get_type() == 0 && t->get_actor() == nullptr));
   
   return t;
+}
+
+void Game::explode() {
+  for (Tile* t : tiles) {
+    t->add_explosion_delta();
+  }
+  
+  for (Actor* a : enemies) {
+    a->add_explosion_delta();
+  }
+  
+  hero->add_explosion_delta();
+  
+  viewer_dist -= 0.003;
+  update_camera_pos();
 }
 
 #endif
