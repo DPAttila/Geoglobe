@@ -36,7 +36,7 @@ Game::Game(AGL* gl) {
     "../shaders/tile_selected.fs"
   );
   
-  glClearColor(0.5f, 0.5f, 0.2f, 0.0f);
+  glClearColor(0.11f, 0.21f, 0.6f, 0.0f);
   
   bufferGenerator = new BufferGenerator(gl);
   
