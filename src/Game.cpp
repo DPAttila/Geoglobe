@@ -51,16 +51,21 @@ Game::Game(AGL* gl) {
     true
   );
   
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 5; i++) {
     enemies.push_back(new Actor(
       bufferGenerator->get_phantom_buf(),
       get_unoccupied_tile(),
       5,
-      1,
+      3,
       3,
       false
     ));
   }
+  
+  vector<Actor*> ai_enemy_vector;
+  ai_enemy_vector.push_back(hero);
+  
+  ai = new AI(&enemies, ai_enemy_vector, this);
   
   Point2f hero_angles = hero->get_angles();
   
@@ -88,12 +93,12 @@ void Game::logic() {
   if (game_ended) {
     if (menu_appear_countdown) {
       menu_appear_countdown--;
-      if (hero->is_alive()) {
-        explode();
-      }
+      explode();
     }
   } else {
-    if (selection_cooldown) selection_cooldown--;
+    if (selection_cooldown) 
+      selection_cooldown--;
+    
     if (!animation) {
       if (player_turn) {
         if (hero->get_tile()->get_type() == 2) {
@@ -107,15 +112,24 @@ void Game::logic() {
           move_selection = 0;
           (hero->get_moves())[move_selection]->select();
         }
+      } else {
+        ai->move();
+        if (ai->is_finished()) {
+          player_turn = true;
+          hero->calculate_moves();
+        } else
+          animation = true;
       }
     } else {
       animator->animate();
       
       if (animator->is_finished()) {
-        cout << "Animation finished\n" << flush;
         animation = false;
-        player_turn = !player_turn;
-      
+        if (player_turn) {
+          player_turn = false;
+          ai->start_turn();
+        }
+        
         if (blast != nullptr) {
           
           blast->blow();
@@ -134,8 +148,6 @@ void Game::logic() {
         
         delete animator;
         animator = nullptr;
-        
-        hero->calculate_moves();
       } 
     }
   }
@@ -155,7 +167,8 @@ void Game::draw() {
     t->draw();
   }
   
-  hero->draw();
+  if (hero->is_alive())
+    hero->draw();
   
   for (Actor* e : enemies) {
     e->draw();
@@ -184,7 +197,7 @@ void Game::input() {
         selection_cooldown = SELECTION_COOLDOWN;
         
         vector<Tile*> moves = hero->get_moves();
-        
+
         moves[move_selection]->deselect();
         
         if (gl_input->get_key(GLFW_KEY_LEFT)) {
@@ -204,7 +217,6 @@ void Game::input() {
     }
     
     if (gl_input->get_key(GLFW_KEY_ENTER)) {
-      player_turn = false;
       animation = true;
       
       vector<Tile*> moves = hero->get_moves();
@@ -212,14 +224,8 @@ void Game::input() {
       for (int i = 0; i < moves.size(); i++)
         moves[i]->dehighlight();
 
-      if (moves[move_selection]->get_actor() == nullptr) {
-        animator = new Animator(hero, moves[move_selection]->get_pos());
-        hero->set_tile(moves[move_selection]);
-      } else {
-        shoot_blast(hero, moves[move_selection]->get_actor());
-        hero->calculate_moves();
-      }
-
+      execute_move(hero, moves[move_selection]);
+      
       for (Tile* t : hero_fov)
         t->dehighlight();
       hero_fov.clear();
@@ -254,19 +260,8 @@ void Game::input() {
 }
 
 void Game::shoot_blast(Actor* source, Actor* target) {
- cout << "Entering funciton\n" << flush;
-  if (blast != nullptr) 
-    cout << "Blast nem nullptr, gyanus\n";
-  
-  cout << "Creaint blast\n" << flush;
   blast = new Blast(source, target, bufferGenerator->get_blast_buf());
-  
-  cout << "Creating animator\n" << flush;
-  
-  if (animator != nullptr)
-    cout << "Animator nem nullptr, gyanus\n";
   animator = new Animator(blast, target->get_pos());
-  cout << "Blast shot\n" << flush;
 }
 
 void Game::build_tiles() {
@@ -283,7 +278,7 @@ void Game::build_tiles() {
     }
   }
   
-  for (int i = 0; i < 30; i++) 
+ // for (int i = 0; i < 30; i++) 
   get_unoccupied_tile()->set_type(2);
   
   for (int i = 0; i < tiles.size(); i++)
@@ -326,6 +321,15 @@ void Game::explode() {
   
   viewer_dist -= 0.003;
   update_camera_pos();
+}
+
+void Game::execute_move(Actor* actor, Tile* move) {
+  if (move->get_actor() == nullptr) {
+    animator = new Animator(actor, move->get_pos());
+    actor->set_tile(move);
+  } else {
+    shoot_blast(actor, move->get_actor());
+  }
 }
 
 #endif

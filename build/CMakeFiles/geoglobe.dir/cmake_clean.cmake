@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/geoglobe.dir/src/AI.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Actor.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Animateable.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Animator.cpp.o"

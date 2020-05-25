@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ati/repos/geoglobe/src/AI.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/AI.cpp.o"
   "/home/ati/repos/geoglobe/src/Actor.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Actor.cpp.o"
   "/home/ati/repos/geoglobe/src/Animateable.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Animateable.cpp.o"
   "/home/ati/repos/geoglobe/src/Animator.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Animator.cpp.o"

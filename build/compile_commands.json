@@ -1,6 +1,11 @@
 [
 {
   "directory": "/home/ati/repos/geoglobe/build",
+  "command": "/usr/bin/c++   -I/home/ati/repos/geoglobe/agl2.0/include -I/home/ati/repos/geoglobe/agl2.0/imgui-master -I/home/ati/repos/geoglobe/agl2.0/imgui-master/examples -I/home/ati/repos/geoglobe/agl2.0/glad -I/home/ati/repos/geoglobe/agl2.0/stb -I/home/ati/repos/geoglobe/include  -g   -o CMakeFiles/geoglobe.dir/src/AI.cpp.o -c /home/ati/repos/geoglobe/src/AI.cpp",
+  "file": "/home/ati/repos/geoglobe/src/AI.cpp"
+},
+{
+  "directory": "/home/ati/repos/geoglobe/build",
   "command": "/usr/bin/c++   -I/home/ati/repos/geoglobe/agl2.0/include -I/home/ati/repos/geoglobe/agl2.0/imgui-master -I/home/ati/repos/geoglobe/agl2.0/imgui-master/examples -I/home/ati/repos/geoglobe/agl2.0/glad -I/home/ati/repos/geoglobe/agl2.0/stb -I/home/ati/repos/geoglobe/include  -g   -o CMakeFiles/geoglobe.dir/src/Actor.cpp.o -c /home/ati/repos/geoglobe/src/Actor.cpp",
   "file": "/home/ati/repos/geoglobe/src/Actor.cpp"
 },

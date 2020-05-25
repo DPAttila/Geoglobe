@@ -98,7 +98,6 @@ void Actor::breadth_first(vector<Tile*> &tiles, vector<int> &dist, bool walls) {
 }
 
 vector<Tile*> Actor::get_reach() {
-  cout << "Entered getreach\n" << flush;
   vector<Tile*> reach_with_walls;
   vector<Tile*> reach_no_walls;
   
@@ -116,10 +115,7 @@ vector<Tile*> Actor::get_reach() {
     int j = 0;
     for (j = 0; j < reach_no_walls.size(); j++) {
       if (reach_with_walls[i] == reach_no_walls[j]) {
-        if (dist_with_walls[i] != dist_no_walls[j]) {
-          add = false;
-          cout << "no add\n";
-        }
+        if (dist_with_walls[i] != dist_no_walls[j]) add = false;
         break;
       }
     }
@@ -134,7 +130,6 @@ vector<Tile*> Actor::get_reach() {
   
   list.erase(list.begin());
   
-  cout << "Finished getreach\n" << flush;
   return list;
 }
 
@@ -153,7 +148,7 @@ void Actor::calculate_moves() {
   vector<Tile*> reach = get_reach();
   
   for (Tile* t : reach) {
-    if (t->get_actor() != nullptr)
+    if (t->get_actor() != nullptr && t->get_actor()->get_side() != side)
       moves.push_back(t);
   }
   

@@ -169,6 +169,33 @@ geoglobe/fast:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/build
 .PHONY : geoglobe/fast
 
+src/AI.o: src/AI.cpp.o
+
+.PHONY : src/AI.o
+
+# target to build an object file
+src/AI.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/AI.cpp.o
+.PHONY : src/AI.cpp.o
+
+src/AI.i: src/AI.cpp.i
+
+.PHONY : src/AI.i
+
+# target to preprocess a source file
+src/AI.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/AI.cpp.i
+.PHONY : src/AI.cpp.i
+
+src/AI.s: src/AI.cpp.s
+
+.PHONY : src/AI.s
+
+# target to generate assembly for a file
+src/AI.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/AI.cpp.s
+.PHONY : src/AI.cpp.s
+
 src/Actor.o: src/Actor.cpp.o
 
 .PHONY : src/Actor.o
@@ -452,6 +479,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... geoglobe"
+	@echo "... src/AI.o"
+	@echo "... src/AI.i"
+	@echo "... src/AI.s"
 	@echo "... src/Actor.o"
 	@echo "... src/Actor.i"
 	@echo "... src/Actor.s"

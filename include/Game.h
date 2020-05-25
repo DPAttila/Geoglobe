@@ -6,6 +6,7 @@
 #include "AGL.h"
 #include "Point.h"
 
+#include "AI.h"
 #include "Tile.h"
 #include "Blast.h"
 #include "Actor.h"
@@ -16,6 +17,8 @@ using namespace agl;
 
 #define SELECTION_COOLDOWN 7
 #define MENU_APPEAR_COUNTDOWN 400
+
+class AI;
 
 class Game {
   AGL* gl;
@@ -49,6 +52,8 @@ class Game {
   
   vector<Actor*> enemies;
 
+  AI* ai;
+  
   Blast* blast;
   
   Animator *animator;
@@ -74,6 +79,8 @@ public:
   void logic();
   
   void start();
+  
+  void execute_move(Actor* actor, Tile* move);
 };
 
 #endif
