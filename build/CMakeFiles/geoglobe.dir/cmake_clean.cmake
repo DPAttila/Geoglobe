@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Game.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o"
+  "CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o"
   "CMakeFiles/geoglobe.dir/src/Tile.cpp.o"
   "CMakeFiles/geoglobe.dir/src/main.cpp.o"
   "geoglobe.pdb"

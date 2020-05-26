@@ -11,6 +11,7 @@
 #include "Blast.h"
 #include "Actor.h"
 #include "Animator.h"
+#include "TextureManager.h"
 #include "BufferGenerator.h"
 
 using namespace agl;
@@ -22,9 +23,11 @@ class AI;
 
 class Game {
   AGL* gl;
+  
   Camera* gl_camera;
   Input* gl_input;
   ShaderManager* shader_manager;
+  TextureManager* texture_manager;
   
   bool player_turn;
   bool animation;
@@ -67,6 +70,10 @@ class Game {
   void explode();
   
   Tile* get_unoccupied_tile();
+  
+  void init_map();
+  
+  void clear_map();
 public:
   Game(AGL* gl);
   

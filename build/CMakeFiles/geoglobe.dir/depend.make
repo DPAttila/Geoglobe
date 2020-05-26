@@ -26,6 +26,7 @@ CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/Blast.h
 CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/BufferGenerator.h
 CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/Explodeable.h
 CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/Game.h
+CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/TextureManager.h
 CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/AI.cpp.o: ../src/AI.cpp
 
@@ -115,6 +116,7 @@ CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/Animateable.h
 CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/Blast.h
 CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/BufferGenerator.h
 CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/Explodeable.h
+CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/TextureManager.h
 CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/Blast.cpp.o: ../src/Blast.cpp
 
@@ -137,6 +139,7 @@ CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../agl2.0/include/Transformat
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../agl2.0/include/Vertex.h
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../include/BufferGenerator.h
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../include/Explodeable.h
+CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../include/TextureManager.h
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/BufferGenerator.cpp.o: ../src/BufferGenerator.cpp
 
@@ -182,6 +185,7 @@ CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/BufferGenerator.h
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/Explodeable.h
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/Game.h
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/Icosphere.h
+CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/TextureManager.h
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/Game.cpp.o: ../src/Game.cpp
 
@@ -206,6 +210,12 @@ CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: ../include/Explodeable.h
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: ../include/Icosphere.h
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o: ../src/Icosphere.cpp
+
+CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o: ../agl2.0/glad/KHR/khrplatform.h
+CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o: ../agl2.0/glad/glad/glad.h
+CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o: ../agl2.0/include/Texture.h
+CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o: ../include/TextureManager.h
+CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o: ../src/TextureManager.cpp
 
 CMakeFiles/geoglobe.dir/src/Tile.cpp.o: ../agl2.0/glad/KHR/khrplatform.h
 CMakeFiles/geoglobe.dir/src/Tile.cpp.o: ../agl2.0/glad/glad/glad.h
@@ -253,6 +263,7 @@ CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/Blast.h
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/BufferGenerator.h
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/Explodeable.h
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/Game.h
+CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/TextureManager.h
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../include/Tile.h
 CMakeFiles/geoglobe.dir/src/main.cpp.o: ../src/main.cpp
 

@@ -11,9 +11,10 @@ using namespace agl;
 BufferGenerator::BufferGenerator(AGL* gl) {
   this->gl = gl;
   
-  plain_texture = new Texture("../textures/path.png");
-  wall_texture = new Texture("../textures/wall.png");
-  portal_texture = new Texture("../textures/portal.png");
+  texture_manager = new TextureManager();
+  texture_manager->add_texture("plain", "../textures/path.png");
+  texture_manager->add_texture("wall", "../textures/wall.png");
+  texture_manager->add_texture("portal", "../textures/portal.png");
   
   wizard = new Buffer(gl);
   wizard->load("../models/wizard.obj");
@@ -44,7 +45,7 @@ Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
     };
     
     i = {0, 1, 2, 0, 2, 1};
-    buf->set_texture(plain_texture);
+    buf->set_texture(texture_manager->get_texture("plain"));
   } else if (t->get_type() == 1) {
     float wall_height = 0.2;
     
@@ -97,7 +98,7 @@ Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
       11, 12, 13, 11, 13, 12,
       12, 13, 14, 12, 14, 13
     };
-    buf->set_texture(wall_texture);
+    buf->set_texture(texture_manager->get_texture("wall"));
   } else if (t->get_type() == 2) {
     float wall_height = 0.3;
     
@@ -150,7 +151,7 @@ Buffer* BufferGenerator::gen_tile_buf(Tile* t) {
       11, 12, 13, 11, 13, 12,
       12, 13, 14, 12, 14, 13
     };
-    buf->set_texture(portal_texture);
+    buf->set_texture(texture_manager->get_texture("portal"));
   }
   
   buf->add(v, i);
@@ -169,6 +170,10 @@ Buffer* BufferGenerator::get_phantom_buf() {
 
 Buffer* BufferGenerator::get_blast_buf() {
   return blast;
+}
+
+TextureManager* BufferGenerator::get_texture_manager() {
+  return texture_manager;
 }
 
 #endif

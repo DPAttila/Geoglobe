@@ -50,6 +50,8 @@ public:
   
   int get_dmg();
   
+  int get_hp();
+  
   Point get_pos();
   
   Point2f get_angles();

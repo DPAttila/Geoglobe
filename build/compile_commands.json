@@ -46,6 +46,11 @@
 },
 {
   "directory": "/home/ati/repos/geoglobe/build",
+  "command": "/usr/bin/c++   -I/home/ati/repos/geoglobe/agl2.0/include -I/home/ati/repos/geoglobe/agl2.0/imgui-master -I/home/ati/repos/geoglobe/agl2.0/imgui-master/examples -I/home/ati/repos/geoglobe/agl2.0/glad -I/home/ati/repos/geoglobe/agl2.0/stb -I/home/ati/repos/geoglobe/include  -g   -o CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o -c /home/ati/repos/geoglobe/src/TextureManager.cpp",
+  "file": "/home/ati/repos/geoglobe/src/TextureManager.cpp"
+},
+{
+  "directory": "/home/ati/repos/geoglobe/build",
   "command": "/usr/bin/c++   -I/home/ati/repos/geoglobe/agl2.0/include -I/home/ati/repos/geoglobe/agl2.0/imgui-master -I/home/ati/repos/geoglobe/agl2.0/imgui-master/examples -I/home/ati/repos/geoglobe/agl2.0/glad -I/home/ati/repos/geoglobe/agl2.0/stb -I/home/ati/repos/geoglobe/include  -g   -o CMakeFiles/geoglobe.dir/src/Tile.cpp.o -c /home/ati/repos/geoglobe/src/Tile.cpp",
   "file": "/home/ati/repos/geoglobe/src/Tile.cpp"
 },

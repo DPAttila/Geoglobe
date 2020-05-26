@@ -8,8 +8,6 @@
 
 using namespace agl;
 
-AGL* gl;
-
 Game* game;
 
 void input() {
@@ -25,12 +23,15 @@ void logic() {
 }
 
 int main(int argc, char **argv) {
-  gl = new AGL();
+  
+  AGL* gl = new AGL();
   gl->init("Geo-globe", draw, input, logic);
-  
+    
   game = new Game(gl);
-  
+    
   gl->loop();
+
+  delete game;
   
   return 0;
 }

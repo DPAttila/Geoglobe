@@ -5,15 +5,14 @@
 #include "Buffer.h"
 
 #include "Tile.h"
+#include "TextureManager.h"
 
 using namespace agl;
 
 class BufferGenerator {
   AGL* gl;
   
-  Texture* plain_texture;
-  Texture* wall_texture;
-  Texture* portal_texture;
+  TextureManager* texture_manager;
   
   Buffer* wizard;
   Buffer* phantom;
@@ -33,6 +32,9 @@ public:
   Buffer* get_phantom_buf();
   
   Buffer* get_blast_buf();
+  
+  TextureManager* get_texture_manager();
+  
 };
 
 #endif

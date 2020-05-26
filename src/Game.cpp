@@ -40,18 +40,25 @@ Game::Game(AGL* gl) {
   
   bufferGenerator = new BufferGenerator(gl);
   
+  texture_manager = bufferGenerator->get_texture_manager();
+  texture_manager->add_texture("hp", "../textures/hp.png");
+  
+  init_map();
+}
+
+void Game::init_map() {
   build_tiles();
   
   hero = new Actor(
     bufferGenerator->get_wizard_buf(), 
     get_unoccupied_tile(),
-    10, 
+    1, 
     3,
     5,
     true
   );
   
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 30; i++) {
     enemies.push_back(new Actor(
       bufferGenerator->get_phantom_buf(),
       get_unoccupied_tile(),
@@ -86,6 +93,40 @@ Game::Game(AGL* gl) {
   
   game_ended = false;
   menu_appear_countdown = MENU_APPEAR_COUNTDOWN;
+  
+  hero_fov = hero->get_reach();
+  for (Tile* t : hero_fov)
+    t->highlight();
+    
+  move_selection = 0;
+}
+
+void Game::clear_map() {
+  for (Tile* t : tiles) 
+    if (t != nullptr) delete t;
+  
+  tiles.clear();
+  
+  if (hero != nullptr) 
+    delete hero;
+  hero = nullptr;
+  
+  for (Actor* e : enemies) 
+    if (e != nullptr) delete e;
+  
+  enemies.clear();
+  
+  if (ai != nullptr)
+    delete ai;
+  ai = nullptr;
+  
+  if (animator != nullptr)
+    delete animator;
+  animator = nullptr;
+  
+  if (blast != nullptr)
+    delete blast;
+  blast = nullptr;
 }
 
 void Game::logic() {
@@ -101,9 +142,7 @@ void Game::logic() {
     
     if (!animation) {
       if (player_turn) {
-        if (hero->get_tile()->get_type() == 2) {
-          game_ended = true;
-        } else if (hero->get_moves().size() == 0) {
+        if (hero->get_moves().size() == 0) {
           hero->calculate_moves();
           
           for (Tile* t : hero->get_moves()) 
@@ -126,6 +165,9 @@ void Game::logic() {
       if (animator->is_finished()) {
         animation = false;
         if (player_turn) {
+          if (hero->get_tile()->get_type() == 2)
+            game_ended = true;
+
           player_turn = false;
           ai->start_turn();
         }
@@ -154,13 +196,73 @@ void Game::logic() {
 }
 
 void Game::draw() {
-  {
-    ImGui::Begin("Hello");
-    Point2f scroll = gl_input->get_scroll();
-    
-    ImGui::Text("scroll %f %f", scroll.x, scroll.y);
+  
+  if (!game_ended) {
+    {
+      ImGui::Begin("Hello");
+      
+      for (int i = 0; i < hero->get_hp(); i++) {
+        ImGui::SameLine();
+        ImGui::Image((void*)texture_manager->get_texture("hp")->get_texture_object_handle(), ImVec2(30, 30));
+      }
 
+      ImGui::End();
+    }
+
+    if (move_selection < hero->get_moves().size()) {
+      Actor* enemy_selected = hero->get_moves()[move_selection]->get_actor();
+      
+      if (enemy_selected != nullptr) {
+        ImGui::Begin("Enemy");
+        
+        for (int i = 0; i < enemy_selected->get_hp(); i++) {
+          ImGui::SameLine();
+          ImGui::Image((void*)texture_manager->get_texture("hp")->get_texture_object_handle(), ImVec2(30, 30));
+        }
+        
+        ImGui::End();
+      }
+    }
+    
+    {
+      ImGui::Begin("Turn");
+      
+      if (player_turn)
+        ImGui::Text("\t\t\tYOUR TURN");
+      else
+        ImGui::Text("\t\t\tENEMY TURN");
+      
+      ImGui::End();
+    }
+  } else if (menu_appear_countdown == 0) {
+    ImGui::Begin("Game over");
+    ImGui::AlignTextToFramePadding();
+    
+    static ImVec4 col(rand()%10 / 10.0, rand()%10 / 10.0, rand()%10 / 10.0, 1.0);
+    bool restart = false;
+    
+    if (rand() % 10 == 0) {
+      col = ImVec4(rand()%10 / 10.0, rand()%10 / 10.0, rand()%10 / 10.0, 1.0);
+    }
+    
+    if (hero->is_alive())
+      ImGui::TextColored(col, "\t\tWIN\t\t");
+    else 
+      ImGui::TextColored(col, "\t\tLOSE\t\t");
+    
+    if (ImGui::Button("RESTART")) {
+      clear_map();
+      init_map();
+      restart = true;
+    } 
+    
+    if (ImGui::Button("EXIT")) {
+      gl->finish();
+    }
+    
     ImGui::End();
+    
+    if (restart) return;
   }
   
   for (Tile* t : tiles) {

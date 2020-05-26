@@ -213,4 +213,8 @@ void Actor::add_explosion_delta() {
   add_delta();
 }
 
+int Actor::get_hp() {
+  return hp;
+}
+
 #endif

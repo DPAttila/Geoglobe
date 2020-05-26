@@ -412,6 +412,33 @@ src/Icosphere.cpp.s:
 	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/Icosphere.cpp.s
 .PHONY : src/Icosphere.cpp.s
 
+src/TextureManager.o: src/TextureManager.cpp.o
+
+.PHONY : src/TextureManager.o
+
+# target to build an object file
+src/TextureManager.cpp.o:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o
+.PHONY : src/TextureManager.cpp.o
+
+src/TextureManager.i: src/TextureManager.cpp.i
+
+.PHONY : src/TextureManager.i
+
+# target to preprocess a source file
+src/TextureManager.cpp.i:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/TextureManager.cpp.i
+.PHONY : src/TextureManager.cpp.i
+
+src/TextureManager.s: src/TextureManager.cpp.s
+
+.PHONY : src/TextureManager.s
+
+# target to generate assembly for a file
+src/TextureManager.cpp.s:
+	$(MAKE) -f CMakeFiles/geoglobe.dir/build.make CMakeFiles/geoglobe.dir/src/TextureManager.cpp.s
+.PHONY : src/TextureManager.cpp.s
+
 src/Tile.o: src/Tile.cpp.o
 
 .PHONY : src/Tile.o
@@ -506,6 +533,9 @@ help:
 	@echo "... src/Icosphere.o"
 	@echo "... src/Icosphere.i"
 	@echo "... src/Icosphere.s"
+	@echo "... src/TextureManager.o"
+	@echo "... src/TextureManager.i"
+	@echo "... src/TextureManager.s"
 	@echo "... src/Tile.o"
 	@echo "... src/Tile.i"
 	@echo "... src/Tile.s"

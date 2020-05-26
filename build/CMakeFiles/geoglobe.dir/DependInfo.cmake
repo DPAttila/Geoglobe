@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ati/repos/geoglobe/src/Explodeable.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Explodeable.cpp.o"
   "/home/ati/repos/geoglobe/src/Game.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Game.cpp.o"
   "/home/ati/repos/geoglobe/src/Icosphere.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Icosphere.cpp.o"
+  "/home/ati/repos/geoglobe/src/TextureManager.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/TextureManager.cpp.o"
   "/home/ati/repos/geoglobe/src/Tile.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/Tile.cpp.o"
   "/home/ati/repos/geoglobe/src/main.cpp" "/home/ati/repos/geoglobe/build/CMakeFiles/geoglobe.dir/src/main.cpp.o"
   )
