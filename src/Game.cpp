@@ -36,7 +36,7 @@ Game::Game(AGL* gl) {
     "../shaders/tile_selected.fs"
   );
   
-  glClearColor(0.11f, 0.21f, 0.6f, 0.0f);
+  glClearColor(0.21f, 0.21f, 0.6f, 0.0f);
   
   bufferGenerator = new BufferGenerator(gl);
   
@@ -52,13 +52,13 @@ void Game::init_map() {
   hero = new Actor(
     bufferGenerator->get_wizard_buf(), 
     get_unoccupied_tile(),
-    1, 
+    5, 
     3,
     5,
     true
   );
   
-  for (int i = 0; i < 30; i++) {
+  for (int i = 0; i < 10; i++) {
     enemies.push_back(new Actor(
       bufferGenerator->get_phantom_buf(),
       get_unoccupied_tile(),
@@ -380,7 +380,7 @@ void Game::build_tiles() {
     }
   }
   
- // for (int i = 0; i < 30; i++) 
+  for (int i = 0; i < 1; i++) 
   get_unoccupied_tile()->set_type(2);
   
   for (int i = 0; i < tiles.size(); i++)
